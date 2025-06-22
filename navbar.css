@@ -1,0 +1,15 @@
+/* navbar.css */
+
+/* Import Bootstrap CSS and Dark Mode CSS */
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+@import url('darkmode.css');
+
+/* Navbar transition for smooth color changes */
+.navbar {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling for the dark mode toggle button */
+#darkModeToggle {
+  margin-left: 10px;
+}
