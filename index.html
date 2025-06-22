@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - The Boring Task Manager</title>
+  <!-- Link to the custom CSS for the Home page (it also imports Bootstrap) -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">The Boring Task Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tasks.html">Tasks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">Dashboard</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero/Jumbotron Section -->
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to The Boring Task Manager</h1>
+    <p class="lead">A Boring Company presents a minimalist approach to task management.</p>
+    <hr class="my-4">
+    <p>Manage your daily tasks efficiently with a focus on simplicity and clarity.</p>
+    <a class="btn btn-primary btn-lg" href="tasks.html" role="button">Get Started</a>
+  </div>
+
+  <!-- Features Section -->
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <h3>Organize</h3>
+        <p>Keep your tasks in order with our clean, straightforward interface.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <h3>Complete</h3>
+        <p>Mark tasks complete and track your achievements simply.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <h3>Update</h3>
+        <p>Edit and manage your tasks effortlessly as your day evolves.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom jQuery code for the Home page -->
+  <script src="index.js"></script>
+</body>
+</html>

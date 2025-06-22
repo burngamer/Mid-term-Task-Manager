@@ -1,0 +1,30 @@
+/* Import Bootstrap CSS */
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+/* Custom Home Page Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Jumbotron customizations */
+.jumbotron {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+}
+
+h1.display-4 {
+  font-weight: bold;
+}
+
+.lead {
+  font-size: 1.25rem;
+}
+
+hr.my-4 {
+  border-top: 2px solid #bbb;
+}
+
+/* Optional: Custom styles for the features section */
+.container .row > div {
+  margin-top: 1rem;
+}
