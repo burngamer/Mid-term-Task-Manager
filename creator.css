@@ -1,0 +1,45 @@
+/* Reset and base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f5f5f5; /* Light background by default */
+  color: #333;             /* Dark text when not in dark mode */
+}
+
+/* Dark mode style overrides can be defined in your global dark mode */
+/* For demonstration, if you have .dark-mode applied on the body, your dmenable.js will switch colors. */
+
+/* Header styling */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #400578;
+  color: #fff;
+}
+
+/* Creator info section */
+.creator-info {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 18px 48px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.creator-info p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #400578;
+  color: #fff;
+  width: 100%;
+}
