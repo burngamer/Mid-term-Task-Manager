@@ -1,110 +1,87 @@
-// Helper functions to manage cookies
-function setCookie(name, value, days) {
-  let expires = "";
-  if (days) {
-    let date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = "; expires=" + date.toUTCString();
-  }
-  document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-
-function getCookie(name) {
-  let nameEQ = name + "=";
-  let ca = document.cookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === " ") c = c.substring(1);
-    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-  }
-  return null;
-}
-
-
-// Global tasks array
-var tasks = [];
-
-// Load tasks from cookie (if any)
-function loadTasks() {
-  let tasksCookie = getCookie("tasks");
-  if (tasksCookie) {
-    try {
-      tasks = JSON.parse(tasksCookie);
-    } catch (e) {
-      tasks = [];
-    }
-  }
-}
-
-// Save tasks array to cookie (expires in 7 days)
-function saveTasks() {
-  setCookie("tasks", JSON.stringify(tasks), 7);
-}
-
-// Render tasks in the DOM
-function renderTasks() {
-  let taskList = $("#taskList");
-  taskList.empty();
-
-  tasks.forEach(function (task) {
-    let taskItem = $("<li>")
-      .addClass("list-group-item d-flex justify-content-between align-items-center task-item")
-      .attr("data-id", task.id);
-
-    // Left section: checkbox and task text
-    let leftDiv = $("<div>").addClass("d-flex align-items-center");
-    let checkbox = $("<input>")
-      .attr("type", "checkbox")
-      .addClass("mr-2 mark-complete")
-      .prop("checked", task.completed);
-    let taskTextSpan = $("<span>")
-      .addClass("task-text")
-      .text(task.text);
-    if (task.completed) {
-      taskTextSpan.addClass("completed");
-    }
-    leftDiv.append(checkbox, taskTextSpan);
-
-    // Right section: Edit and Delete buttons
-    let rightDiv = $("<div>");
-    let editBtn = $("<button>")
-      .addClass("btn btn-sm btn-info edit-task mr-2")
-      .text("Edit");
-    let deleteBtn = $("<button>")
-      .addClass("btn btn-sm btn-danger delete-task")
-      .text("Delete");
-    rightDiv.append(editBtn, deleteBtn);
-
-    taskItem.append(leftDiv).append(rightDiv);
-    taskList.append(taskItem);
-  });
-}
-
 $(document).ready(function () {
-  // Load tasks from cookies and render them
+  // Global tasks array
+  var tasks = [];
+
+  // Load tasks from localStorage (stored as JSON)
+  function loadTasks() {
+    var tasksStorage = localStorage.getItem("tasks");
+    if (tasksStorage) {
+      try {
+        tasks = JSON.parse(tasksStorage);
+      } catch (e) {
+        tasks = [];
+      }
+    }
+  }
+
+  // Save tasks array to localStorage as a JSON string
+  function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  // Render the tasks in the DOM
+  function renderTasks() {
+    var taskList = $("#taskList");
+    taskList.empty();
+
+    tasks.forEach(function (task) {
+      var taskItem = $("<li>")
+        .addClass("list-group-item d-flex justify-content-between align-items-center task-item")
+        .attr("data-id", task.id);
+
+      // Left section: checkbox and task text
+      var leftDiv = $("<div>").addClass("d-flex align-items-center");
+      var checkbox = $("<input>")
+        .attr("type", "checkbox")
+        .addClass("mr-2 mark-complete")
+        .prop("checked", task.completed);
+      var taskTextSpan = $("<span>")
+        .addClass("task-text")
+        .text(task.text);
+      if (task.completed) {
+        taskTextSpan.addClass("completed");
+      }
+      leftDiv.append(checkbox, taskTextSpan);
+
+      // Right section: Edit and Delete buttons
+      var rightDiv = $("<div>");
+      var editBtn = $("<button>")
+        .addClass("btn btn-sm btn-info edit-task mr-2")
+        .text("Edit");
+      var deleteBtn = $("<button>")
+        .addClass("btn btn-sm btn-danger delete-task")
+        .text("Delete");
+      rightDiv.append(editBtn, deleteBtn);
+
+      taskItem.append(leftDiv).append(rightDiv);
+      taskList.append(taskItem);
+    });
+  }
+
+  // Initial load/render of tasks
   loadTasks();
   renderTasks();
 
-  // Add new task
+  // Create a new task on form submission
   $("#taskForm").submit(function (e) {
     e.preventDefault();
-    let taskText = $("#taskInput").val().trim();
+    var taskText = $("#taskInput").val().trim();
     if (taskText !== "") {
-      let newTask = {
-        id: new Date().getTime(), // unique ID based on timestamp
+      var newTask = {
+        id: new Date().getTime(), // Unique ID based on timestamp
         text: taskText,
         completed: false,
       };
       tasks.push(newTask);
       saveTasks();
       renderTasks();
-      $("#taskInput").val(""); // clear input
+      $("#taskInput").val(""); // Clear input after adding
     }
   });
 
   // Delete task event
   $("#taskList").on("click", ".delete-task", function () {
-    let taskId = $(this).closest(".task-item").data("id");
+    var taskId = $(this).closest(".task-item").data("id");
     tasks = tasks.filter(function (task) {
       return task.id != taskId;
     });
@@ -114,7 +91,7 @@ $(document).ready(function () {
 
   // Toggle task completed status
   $("#taskList").on("change", ".mark-complete", function () {
-    let taskId = $(this).closest(".task-item").data("id");
+    var taskId = $(this).closest(".task-item").data("id");
     tasks.forEach(function (task) {
       if (task.id == taskId) {
         task.completed = !task.completed;
@@ -124,14 +101,14 @@ $(document).ready(function () {
     renderTasks();
   });
 
-  // Edit task event: Replace task text with an input field for in-line editing
+  // In-line edit task event: replace task text with an input field
   $("#taskList").on("click", ".edit-task", function () {
-    let li = $(this).closest(".task-item");
-    let taskId = li.data("id");
-    let currentText = li.find(".task-text").text();
+    var li = $(this).closest(".task-item");
+    var taskId = li.data("id");
+    var currentText = li.find(".task-text").text();
 
-    // Create input field pre-filled with the current task text
-    let inputField = $("<input>")
+    // Create an input field pre-filled with current task text
+    var inputField = $("<input>")
       .attr("type", "text")
       .addClass("form-control form-control-sm edit-input")
       .val(currentText);
@@ -139,7 +116,7 @@ $(document).ready(function () {
     li.find(".task-text").replaceWith(inputField);
     inputField.focus();
 
-    // Save updated text on Enter key press or on losing focus
+    // Save updated text on Enter key press or blur event
     inputField.on("keypress", function (e) {
       if (e.which === 13) {
         updateTask(taskId, inputField.val());
@@ -150,11 +127,11 @@ $(document).ready(function () {
     });
   });
 
-  // Update task function
+  // Update task text based on user edit
   function updateTask(taskId, newText) {
     newText = newText.trim();
     if (newText === "") {
-      // If no text entered, delete the task
+      // If no text is entered, delete the task
       tasks = tasks.filter(function (task) {
         return task.id != taskId;
       });
