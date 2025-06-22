@@ -20,8 +20,4 @@ body {
   line-height: 30px;
 }
 
-/* Optional: Customize table styling if needed */
-#tasksTable thead th {
-  background-color: #343a40;
-  color: #fff;
-}
+

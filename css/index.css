@@ -6,7 +6,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Jumbotron customizations */
+/* Basic Welcome Text customizations */
 .jumbotron {
   background-color: transparent !important;
   border: none; /* Optional: Remove any border if present */

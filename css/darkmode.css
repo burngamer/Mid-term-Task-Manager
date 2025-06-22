@@ -6,10 +6,10 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark mode overrides for the navbar */
+/* Dark mode */
 body.dark-mode .navbar {
   background-color: #1f1f1f;
   color: #e0e0e0;
 }
 
-/* You can add more dark mode styles as needed */
+

@@ -7,12 +7,12 @@ body {
 }
 
 
-/* Navbar specific styles, including transitions for dark mode */
+/* Navbar specific styles*/
 .navbar {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark mode overrides (assumes a 'dark-mode' class on body) */
+/* Dark mode overrides */
 body.dark-mode .navbar {
   background-color: #070707;
   color: #0f0f0f;
