@@ -15,21 +15,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html" target="_top">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tasks.html" target="_top">Tasks</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html" target="_top">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html" target="_top">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.html" target="_top">Dashboard</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html" target="_top">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="tasks.html" target="_top">Tasks</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html" target="_top">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" target="_top">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html" target="_top">Dashboard</a></li>
           <li class="nav-item">
             <button class="btn btn-outline-secondary" id="darkModeToggle">
               Dark Mode
@@ -40,12 +30,14 @@
     </nav>
     
     <script>
-      // When the dark mode toggle is clicked, send a message to the parent.
+      // Add an event listener to the dark mode toggle button.
       document.getElementById('darkModeToggle').addEventListener('click', function() {
-        // Toggle button text (optional)
-        this.textContent = this.textContent === 'Dark Mode' ? 'Light Mode' : 'Dark Mode';
-        // Tell the parent to toggle dark mode.
+        // Optionally change the button text immediately...
+        // You could optionally read from localStorage here, but the parent will handle it.
+        this.textContent = (this.textContent === 'Dark Mode') ? 'Light Mode' : 'Dark Mode';
+        // Send a message to the parent to toggle dark mode.
         window.parent.postMessage({ action: 'toggleDarkMode' }, '*');
+        console.log("Dark mode button clicked in navbar.");
       });
     </script>
   </body>

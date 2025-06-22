@@ -2,6 +2,10 @@
 
 /* Import Bootstrap CSS if needed */
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+body {
+  background-color: transparent;
+}
+
 
 /* Navbar specific styles, including transitions for dark mode */
 .navbar {
@@ -10,6 +14,6 @@
 
 /* Dark mode overrides (assumes a 'dark-mode' class on body) */
 body.dark-mode .navbar {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
+  background-color: #a52020;
+  color: #f5f0f0;
 }

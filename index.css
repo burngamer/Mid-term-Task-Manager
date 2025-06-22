@@ -8,9 +8,10 @@ body {
 
 /* Jumbotron customizations */
 .jumbotron {
-  background-color: #f8f9fa;
-  padding: 3rem 1rem;
+  background-color: transparent !important;
+  border: none; /* Optional: Remove any border if present */
 }
+
 
 h1.display-4 {
   font-weight: bold;
@@ -21,8 +22,9 @@ h1.display-4 {
 }
 
 hr.my-4 {
-  border-top: 2px solid #bbb;
+  border-top: 2px solid transparent;
 }
+
 
 /* Optional: Custom styles for the features section */
 .container .row > div {
