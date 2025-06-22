@@ -1,0 +1,16 @@
+/* Import Bootstrap CSS */
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+/* Custom styles for the Tasks page */
+
+/* When a task is marked as completed, strike-through the text */
+.task-item .task-text.completed,
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+/* Optional: styling for inline edit input */
+.edit-input {
+  width: 100%;
+}
