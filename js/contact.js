@@ -1,10 +1,10 @@
 $(document).ready(function() {
   $('#contactForm').submit(function(e) {
-    e.preventDefault(); // Prevent default form submission
-    $('#confirmation').fadeIn(); // Show confirmation message
+    e.preventDefault(); 
+    $('#confirmation').fadeIn(); 
     setTimeout(function() {
-      $('#confirmation').fadeOut(); // Hide confirmation after 3 seconds
-      $('#contactForm')[0].reset(); // Reset the form fields
+      $('#confirmation').fadeOut(); 
+      $('#contactForm')[0].reset(); 
     }, 3000);
   });
 });
