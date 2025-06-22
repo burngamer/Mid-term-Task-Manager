@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - The Boring Task Manager</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
     <style>
   body {
     color: #000; /* Default text color becomes black */
@@ -17,10 +17,10 @@
 </style>
   </head>
   <body>
-    <!-- Navbar container: This is where navbar.html will be injected -->
+    <!-- Navbar container: -->
     <iframe 
       id="navbarFrame" 
-      src="navbar.html" 
+      src="../html/navbar.html" 
       style="width:100%; border:none;" 
       scrolling="no">
     </iframe>
@@ -35,16 +35,16 @@
       <p>
         Manage your daily tasks efficiently with a focus on simplicity and clarity.
       </p>
-      <a class="btn btn-primary btn-lg" href="tasks.html" role="button">Get Started</a>
+      <a class="btn btn-primary btn-lg" href="../html/tasks.html" role="button">Get Started</a>
     </div>
 
-    <!-- Load jQuery (if needed elsewhere) -->
+    <!-- Load jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Load the navbar.js which will fetch and inject navbar.html -->
-    <script src="navbar.js"></script>
+    <!-- Load the navbar.js -->
+    <script src="../js/navbar.js"></script>
     <!-- Other scripts -->
-    <script src="index.js"></script>
-    <script src="dmenable.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/dmenable.js"></script>
 
   </body>
 </html>
