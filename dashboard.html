@@ -1,90 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - The Boring Task Manager</title>
-  <!-- Link to the custom CSS for the Dashboard page -->
-  <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">The Boring Task Manager</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-         <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
-         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-         <li class="nav-item active"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-      </ul>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - The Boring Task Manager</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <!-- Navbar container -->
+    <iframe 
+      id="navbarFrame" 
+      src="navbar.html" 
+      style="width:100%; border:none;" 
+      scrolling="no">
+    </iframe>
 
-  <div class="container mt-4">
-    <h2 class="mb-4">Dashboard</h2>
-    <!-- Metrics Cards -->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card text-white bg-primary mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Total Tasks</h5>
-            <p class="card-text" id="totalTasks">0</p>
+    
+    <!-- Dashboard page content -->
+    <div class="container mt-4">
+      <h2 class="mb-4">Dashboard</h2>
+      <!-- Metrics Cards -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Total Tasks</h5>
+              <p class="card-text" id="totalTasks">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Completed Tasks</h5>
+              <p class="card-text" id="completedTasks">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Pending Tasks</h5>
+              <p class="card-text" id="pendingTasks">0</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-         <div class="card text-white bg-success mb-3">
-           <div class="card-body">
-             <h5 class="card-title">Completed Tasks</h5>
-             <p class="card-text" id="completedTasks">0</p>
-           </div>
-         </div>
+      
+      <!-- Task Completion Progress Bar -->
+      <div class="my-4">
+        <h4>Task Completion</h4>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 0%;" id="completionBar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            0%
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-         <div class="card text-white bg-warning mb-3">
-           <div class="card-body">
-             <h5 class="card-title">Pending Tasks</h5>
-             <p class="card-text" id="pendingTasks">0</p>
-           </div>
-         </div>
+      
+      <!-- Tasks Details Table -->
+      <div class="table-responsive">
+        <table class="table table-striped" id="tasksTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Task</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be dynamically generated -->
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <!-- Task Completion Progress Bar -->
-    <div class="my-4">
-      <h4>Task Completion</h4>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 0%;" id="completionBar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-      </div>
-    </div>
-
-    <!-- Tasks Details Table -->
-    <div class="table-responsive">
-      <table class="table table-striped" id="tasksTable">
-        <thead>
-           <tr>
-             <th>ID</th>
-             <th>Task</th>
-             <th>Status</th>
-           </tr>
-        </thead>
-        <tbody>
-          <!-- Rows will be dynamically generated -->
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- jQuery from CDN -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom Dashboard jQuery script -->
-  <script src="dashboard.js"></script>
-</body>
+    
+    <!-- Load jQuery and scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
 </html>
