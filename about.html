@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - The Boring Task Manager</title>
+  <!-- Link to the local Bootstrap CSS and custom overrides -->
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">The Boring Task Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="tasks.html">Tasks</a></li>
+        <li class="nav-item active"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5" id="aboutContent">
+    <h2 class="mb-4">About Us</h2>
+    <p>Welcome to The Boring Task Manager, crafted by A Boring Company. Our mission is to simplify your daily tasks with a minimalist approach.</p>
+    <p>We believe that productivity doesn't need flashy frills—just clean, clear functionality that helps you focus on what really matters.</p>
+    <p>Built with Bootstrap for responsive design and powered by jQuery for interactive experiences, our platform offers a seamless, no-nonsense task management solution.</p>
+  </div>
+
+  <!-- jQuery from CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Custom jQuery for the About page -->
+  <script src="about.js"></script>
+</body>
+</html>
